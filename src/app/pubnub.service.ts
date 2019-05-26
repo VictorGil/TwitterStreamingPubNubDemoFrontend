@@ -45,9 +45,13 @@ export class PubnubService {
     this.pubnub.getMessage(channelName, (messageWrapper) => {
       const messageWrapperString: string = JSON.stringify(messageWrapper, null, 4);
       const currentTime: string = DateUtil.getCurrentTimeString();
-      console.log('Message Received:\n' +  messageWrapperString + '\non channel ' + channelName
-          + ' at ' + currentTime);
 
+      console.log('Message Received:' + '\n' +  messageWrapperString + '\n' +
+          'on channel ' + channelName + ' at ' + currentTime);
+
+      messageWrapper.timeReceived = Date.now();
+
+      // The use of "self" is required
       self.messageReceivedObserver.next(messageWrapper);
     });
 

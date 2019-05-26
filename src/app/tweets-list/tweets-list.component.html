@@ -6,7 +6,8 @@
   <ul>
     <li *ngFor="let messageWrapper of messageWrappers">
       New message received, number of tweets:&nbsp;{{messageWrapper.message.tweets.length}}<br/>
-      Message sent time:&nbsp;{{ messageWrapper.timetoken | toTimeString }}
+      Message sent time:&nbsp;{{ messageWrapper.timetoken | toTimeStringFromString }}<br/>
+      Message received time:&nbsp;{{ messageWrapper.timeReceived | toTimeStringFromMillis }}
     </li>
   </ul>
 </div>

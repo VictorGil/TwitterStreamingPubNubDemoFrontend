@@ -4,13 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { TweetsListComponent } from './tweets-list/tweets-list.component';
 
-import {ToTimeStringPipe} from './toTimeString.pipe';
+import {ToTimeStringFromStringPipe} from './toTimeStringFromString.pipe';
+import {ToTimeStringFromMillisPipe} from './toTimeStringFromMillis.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TweetsListComponent,
-    ToTimeStringPipe
+    ToTimeStringFromStringPipe,
+    ToTimeStringFromMillisPipe
   ],
   imports: [
     BrowserModule

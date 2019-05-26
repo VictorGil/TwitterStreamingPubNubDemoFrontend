@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import DateUtil from './classes/dateUtil';
 
 @Pipe({
-    name: 'toTimeString'
+    name: 'toTimeStringFromString'
   })
-  export class ToTimeStringPipe implements PipeTransform {
+  export class ToTimeStringFromStringPipe implements PipeTransform {
     transform(value: string): string {
       return DateUtil.getTimeStringFromString(value);
     }
