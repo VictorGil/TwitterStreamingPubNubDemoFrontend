@@ -1,0 +1,12 @@
+<div *ngIf="messageWrappers.length == 0">
+  No messages have been received yet.
+</div>
+
+<div *ngIf="messageWrappers.length > 0">
+  <ul>
+    <li *ngFor="let messageWrapper of messageWrappers">
+      New message received, number of tweets:&nbsp;{{messageWrapper.message.tweets.length}}<br/>
+      Message sent time:&nbsp;{{ messageWrapper.timetoken | toTimeString }}
+    </li>
+  </ul>
+</div>
