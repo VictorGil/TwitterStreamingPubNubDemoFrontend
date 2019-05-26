@@ -6,16 +6,21 @@ import { TweetsListComponent } from './tweets-list/tweets-list.component';
 
 import {ToTimeStringFromStringPipe} from './toTimeStringFromString.pipe';
 import {ToTimeStringFromMillisPipe} from './toTimeStringFromMillis.pipe';
+import { CountrySelectComponent } from './country-select/country-select.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     TweetsListComponent,
     ToTimeStringFromStringPipe,
-    ToTimeStringFromMillisPipe
+    ToTimeStringFromMillisPipe,
+    CountrySelectComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

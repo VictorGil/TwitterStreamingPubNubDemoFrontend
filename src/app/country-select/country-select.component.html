@@ -1,0 +1,7 @@
+<form [formGroup]="countryFormGroup">
+    <select formControlName="countryControl">
+      <option [value]="country" *ngFor="let country of countries">
+          {{country}}</option>
+    </select>
+</form>
+  
