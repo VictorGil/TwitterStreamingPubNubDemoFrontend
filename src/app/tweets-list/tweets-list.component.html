@@ -3,11 +3,23 @@
 </div>
 
 <div *ngIf="messageWrappers.length > 0">
-  <ul>
+  <ol>
     <li *ngFor="let messageWrapper of messageWrappers">
-      New message received, number of tweets:&nbsp;{{messageWrapper.message.tweets.length}}<br/>
+      New message received, number of tweets:&nbsp;{{ messageWrapper.message.tweets.length }}<br/>
       Message sent time:&nbsp;{{ messageWrapper.timetoken | toTimeStringFromString }}<br/>
-      Message received time:&nbsp;{{ messageWrapper.timeReceived | toTimeStringFromMillis }}
+      Message received time:&nbsp;{{ messageWrapper.timeReceived | toTimeStringFromMillis }}<br/>
+      <ol>
+        <li class="class01"  *ngFor="let tweet of messageWrapper.message.tweets">
+          &#9;Tweet id:&nbsp;{{ tweet.id }}<br/>
+          &#9;Number:&nbsp;{{ tweet.number }}<br/>
+          &#9;Country:&nbsp;{{ tweet.country }}<br/>
+          &#9;User:&nbsp;{{ tweet.user }}<br/>
+          &#9;Creation time:&nbsp;{{ tweet.tweetCreatedAt | toTimeStringFromMillis }}<br/>
+          &#9;Text:&nbsp;{{ tweet.text }}<br/>
+          <br/>
+        </li>
+      </ol>
+      <br/>
     </li>
-  </ul>
+  </ol>
 </div>
