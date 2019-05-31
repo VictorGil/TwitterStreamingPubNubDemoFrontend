@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, Subscriber } from 'rxjs';
 
 import DateUtil from './classes/dateUtil';
 
@@ -8,11 +8,12 @@ import DateUtil from './classes/dateUtil';
   providedIn: 'root'
 })
 
-export class PubnubService {
+export class PubnubService implements OnDestroy {
   private readonly pubnub: PubNubAngular;
 
   public readonly messageReceivedObservable: Observable<any>;
   private messageReceivedObserver: Observer<any>;
+  private currentChannel: string;
 
   constructor() {
     console.log('Starting PubnumService constructor method');
@@ -26,14 +27,18 @@ export class PubnubService {
     this.pubnub = new PubNubAngular();
   }
 
-  public setup(): void {
+  public setup(channelName: string): void {
     this.pubnub.init({
       // Key values are masked
       publishKey: 'pub-c-********-****-****-****-************',
       subscribeKey: 'sub-c-********-****-****-****-************'
     });
 
-    const channelName = 'Spain';
+    this.subscribe(channelName);
+  }
+
+  private subscribe(channelName: string) {
+    console.log('Going to subscribe to ' + channelName + ' channel');
     this.pubnub.subscribe({
       channels  : [channelName],
       withPresence: true,
@@ -66,5 +71,19 @@ export class PubnubService {
     this.pubnub.getStatus(channelName, (st) => {
       console.log(st);
     });
+
+    this.currentChannel = channelName;
+  }
+
+  public changeChannel(channelName: string): void {
+    console.log('Going to unsubscribe from ' + this.currentChannel + ' channel');
+    this.pubnub.unsubscribeAll();
+
+    this.subscribe(channelName);
+  }
+
+  ngOnDestroy() {
+    console.log('Service PubnubService is being destroyed, stopping PubNub client instance');
+    this.pubnub.stop();
   }
 }

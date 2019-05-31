@@ -31,6 +31,7 @@ export class TweetsListComponent implements OnInit {
       });
 
     console.log('Going to setup ' + PubnubService.name);
-    this.pubnubService.setup();
+    // The default channel name (country) is USA
+    this.pubnubService.setup('USA');
   }
 }

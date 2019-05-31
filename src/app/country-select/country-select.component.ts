@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder} from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
+import { PubnubService } from '../pubnub.service';
 
 @Component({
   selector: 'app-country-select',
@@ -8,19 +9,26 @@ import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder} from '@angula
 })
 export class CountrySelectComponent implements OnInit {
   countryFormGroup: FormGroup;
+  private readonly formBuilder: FormBuilder;
   readonly countries = ['USA', 'UK', 'Spain'];
 
+  private readonly pubnubService: PubnubService;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(formBuilder: FormBuilder, pubnubService: PubnubService) {
+     this.formBuilder = formBuilder;
+     this.pubnubService = pubnubService;
+   }
 
   ngOnInit() {
     this.countryFormGroup = this.formBuilder.group({
+      // The default channel name (country) is USA
       countryFormControl: ['USA']
     });
   }
 
   onChange(country: string) {
-    alert(`Selected country: ` + country);
+    console.log('Selected country/channel: ' + country);
+    this.pubnubService.changeChannel(country);
   }
 
 }
