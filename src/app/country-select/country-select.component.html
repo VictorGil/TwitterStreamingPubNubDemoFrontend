@@ -1,5 +1,5 @@
 <form [formGroup]="countryFormGroup">
-    <select formControlName="countryControl">
+    <select formControlName="countryFormControl" (change)="onChange($event.target.value)">
       <option [value]="country" *ngFor="let country of countries">
           {{country}}</option>
     </select>

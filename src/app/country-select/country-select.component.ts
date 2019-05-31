@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder} from '@angular/forms';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-country-select',
@@ -10,12 +10,17 @@ export class CountrySelectComponent implements OnInit {
   countryFormGroup: FormGroup;
   readonly countries = ['USA', 'UK', 'Spain'];
 
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.countryFormGroup = this.formBuilder.group({
-      countryControl: ['USA']
+      countryFormControl: ['USA']
     });
+  }
+
+  onChange(country: string) {
+    alert(`Selected country: ` + country);
   }
 
 }
