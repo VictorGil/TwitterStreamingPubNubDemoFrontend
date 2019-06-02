@@ -22,7 +22,6 @@ export class TweetsListComponent implements OnInit {
 
   ngOnInit() {
     this.pubnubService.messageReceivedObservable.subscribe(
-      // messageWrapper => this.messageWrappers.push(messageWrapper));
       messageWrapper => {
         console.log('Adding new messageWrapper to the list, timetoken: ' +
             messageWrapper.timetoken);
