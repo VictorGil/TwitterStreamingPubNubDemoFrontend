@@ -9,7 +9,7 @@
       Message sent time:&nbsp;{{ messageWrapper.timetoken | toTimeStringFromString }}<br/>
       Message received time:&nbsp;{{ messageWrapper.timeReceived | toTimeStringFromMillis }}<br/>
       <ol>
-        <li class="class01"  *ngFor="let tweet of messageWrapper.message.tweets">
+        <li class="{{ tweet.country }}"  *ngFor="let tweet of messageWrapper.message.tweets">
           &#9;Tweet id:&nbsp;{{ tweet.id }}<br/>
           &#9;Number:&nbsp;{{ tweet.number }}<br/>
           &#9;Country:&nbsp;{{ tweet.country }}<br/>

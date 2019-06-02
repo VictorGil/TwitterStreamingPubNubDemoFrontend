@@ -1,6 +1,17 @@
-li.class01 {
+li.USA {
     display: inline;
     background-color: #cce5ff;
     margin: 5em 0;
 }
 
+li.UK {
+    display: inline;
+    background-color: #00FF7F;
+    margin: 5em 0;
+}
+
+li.Spain {
+    display: inline;
+    background-color: #FFFF33;
+    margin: 5em 0;
+}
