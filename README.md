@@ -1,4 +1,4 @@
-# PubNub demo using Twitter Stream API - frontend
+# PubNub demo using Twitter Streaming API - frontend
 
 This is the frontend part of the PubNub demo application which gets live tweets from the
 Twitter Streaming API and publishes them using the PubNub Java API.  
