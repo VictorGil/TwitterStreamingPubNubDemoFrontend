@@ -10,6 +10,9 @@ import {ToTimeStringFromMillisPipe} from './toTimeStringFromMillis.pipe';
 import { ConstructUrlPipe } from './constructUrl.pipe';
 
 import { CountrySelectComponent } from './country-select/country-select.component';
+
+// This import is required in order to avoid "Can't bind to 'formGroup' since it isn't a known property of 'form'"
+// runtime error
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
