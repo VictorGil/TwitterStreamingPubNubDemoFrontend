@@ -6,6 +6,9 @@ import { TweetsListComponent } from './tweets-list/tweets-list.component';
 
 import {ToTimeStringFromStringPipe} from './toTimeStringFromString.pipe';
 import {ToTimeStringFromMillisPipe} from './toTimeStringFromMillis.pipe';
+
+import { ConstructUrlPipe } from './constructUrl.pipe';
+
 import { CountrySelectComponent } from './country-select/country-select.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -15,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TweetsListComponent,
     ToTimeStringFromStringPipe,
     ToTimeStringFromMillisPipe,
+    ConstructUrlPipe,
     CountrySelectComponent
   ],
   imports: [

@@ -10,7 +10,7 @@
       Message received time:&nbsp;{{ messageWrapper.timeReceived | toTimeStringFromMillis }}<br/>
       <ol>
         <li class="{{ tweet.country }}"  *ngFor="let tweet of messageWrapper.message.tweets">
-          &#9;Tweet id:&nbsp;{{ tweet.id }}<br/>
+          &#9;Tweet id:&nbsp;<a target="_blank" href="{{ tweet.user | constructUrl: tweet.id }}"><b>{{ tweet.id }}</b></a><br/>          
           &#9;Number:&nbsp;{{ tweet.number }}<br/>
           &#9;Country:&nbsp;{{ tweet.country }}<br/>
           &#9;User:&nbsp;{{ tweet.user }}<br/>
