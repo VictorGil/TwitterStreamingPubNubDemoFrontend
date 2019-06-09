@@ -7,3 +7,16 @@ This Angular application receives the Tweets via [PubNub](https://www.pubnub.com
 Source code repository for the backend: [TwitterStreamingPubNubDemoBackend](https://github.com/VictorGil/TwitterStreamingPubNubDemoBackend).  
   
 Explanatory video on [YouTube](https://youtu.be/A0QXLJFLzm4)  
+
+## Requirements
+
+ - Angular 7+  
+ 
+## Usage
+
+Please note that that only the source code files are included in this repository and none of the javascript libraries/dependencies nor the Angular framework configuration files.  
+  
+After having started the Java backend, start serving the frontend using the Angular CLI:
+```
+$ ng serve
+```
