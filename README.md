@@ -20,3 +20,4 @@ After having started the Java backend, start serving the frontend using the Angu
 ```
 $ ng serve
 ```
+Then you may access the application by pointing your Web browser to the standard Angular port: `http://localhost:4200/`  
