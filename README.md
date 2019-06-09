@@ -17,6 +17,7 @@ Explanatory video on [YouTube](https://youtu.be/A0QXLJFLzm4)
 Please note that only the source code files are included in this repository and none of the javascript libraries/dependencies nor the Angular framework configuration files.  
   
 Use the same PubNub **Publish key** and **Subscribe key** values used for the backend in the [pubnub.service.ts](https://github.com/VictorGil/TwitterStreamingPubNubDemoFrontend/blob/master/src/app/pubnub.service.ts#L33) file.  
+Remember that you can get your keys for free by registering for a developer account on [pubnub.com](https://www.pubnub.com/).  
   
 After having started the Java backend, start serving the frontend using the Angular CLI:
 ```
