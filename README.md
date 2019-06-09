@@ -14,7 +14,7 @@ Explanatory video on [YouTube](https://youtu.be/A0QXLJFLzm4)
  
 ## Usage
 
-Please note that that only the source code files are included in this repository and none of the javascript libraries/dependencies nor the Angular framework configuration files.  
+Please note that only the source code files are included in this repository and none of the javascript libraries/dependencies nor the Angular framework configuration files.  
   
 After having started the Java backend, start serving the frontend using the Angular CLI:
 ```
