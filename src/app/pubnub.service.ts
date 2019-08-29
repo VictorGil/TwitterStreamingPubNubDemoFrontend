@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
-import { Observable, Observer, Subscriber } from 'rxjs';
+import { Observable, Observer} from 'rxjs';
 
 import DateUtil from './classes/dateUtil';
 
@@ -30,8 +30,8 @@ export class PubnubService implements OnDestroy {
   public setup(channelName: string): void {
     this.pubnub.init({
       // Key values are masked
-      publishKey: 'pub-c-********-****-****-****-************',
-      subscribeKey: 'sub-c-********-****-****-****-************'
+      publishKey: 'pub-c-********************************',
+      subscribeKey: 'sub-c-********************************'
     });
 
     this.subscribe(channelName);
@@ -54,6 +54,7 @@ export class PubnubService implements OnDestroy {
       console.log('Message Received:' + '\n' +  messageWrapperString + '\n' +
           'on channel ' + channelName + ' at ' + currentTime);
 
+      // We are adding this property to the messageWrapper object
       messageWrapper.timeReceived = Date.now();
 
       // The use of "self" is required
@@ -82,7 +83,7 @@ export class PubnubService implements OnDestroy {
     this.subscribe(channelName);
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy() {
     console.log('Service PubnubService is being destroyed, stopping PubNub client instance');
     this.pubnub.stop();
   }
