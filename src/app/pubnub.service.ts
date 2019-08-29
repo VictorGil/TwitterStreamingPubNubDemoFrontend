@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
 import { Observable, Observer} from 'rxjs';
 
@@ -8,7 +8,7 @@ import DateUtil from './classes/dateUtil';
   providedIn: 'root'
 })
 
-export class PubnubService implements OnDestroy {
+export class PubnubService {
   private readonly pubnub: PubNubAngular;
 
   public readonly messageReceivedObservable: Observable<any>;
@@ -83,7 +83,7 @@ export class PubnubService implements OnDestroy {
     this.subscribe(channelName);
   }
 
-  public ngOnDestroy() {
+  public stop() {
     console.log('Service PubnubService is being destroyed, stopping PubNub client instance');
     this.pubnub.stop();
   }
